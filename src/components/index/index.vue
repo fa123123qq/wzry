@@ -6,6 +6,8 @@
         <!-- 主页导航end -->
     
         <!-- 主页内容start -->
+          <v-iContent v-for='(item,i) in contList' :key='i' :type='item'>
+          </v-iContent>
         <!-- 主页内容end -->
     </section>
 </template>
@@ -14,10 +16,16 @@
 import mSwiper from '../swipe/swipe.vue';
 import config from '../../js/config.js';
 import iHomeNav from './homeNav.vue';
+import iContent from './homeCont.vue'
 export default {
     data(){
         return{
-            'swipeList':[]
+            'swipeList':[],
+              'contList': [
+                { tab: 'news', msg: '热点资讯', href: 'http://pvp.qq.com/m/m201606/newsList.shtml' },
+                { tab: 'video', msg: '精彩视频', href: 'http://pvp.qq.com/m/m201706/strategycenter.shtml' },
+                { tab: 'strategy', msg: '精品攻略', href: 'http://pvp.qq.com/m/m201606/strategy.shtml' }
+            ]
         }
     } ,
     methods:{
@@ -35,6 +43,7 @@ export default {
     components:{
         'v-swipe':mSwiper,
         'v-homeNav': iHomeNav,
+        'v-iContent': iContent
     },
     created(){
         this.getLunbo();

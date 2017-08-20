@@ -20,5 +20,5 @@ export default {
 </script>
 
 <style lang='less'>
-    @import '../../style/homeButtom.less';
+    @import '../../style/homeBottom.less';
 </style>
